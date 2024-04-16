@@ -13,7 +13,7 @@ public class CatchEngine
 	private Vector<Ball> balls;
 	private Bucket bucket;
 	private int points = 0;
-	private int lives = 3;
+	private int lives = 6;
 	private int speedDelay = 0;
 	private int addBallDelay = MAX_BALL_DELAY;
 	private int ballDelay = 0;
