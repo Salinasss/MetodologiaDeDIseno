@@ -17,11 +17,13 @@ public class CatchEngine
 	private int speedDelay = 0;
 	private int addBallDelay = MAX_BALL_DELAY;
 	private int ballDelay = 0;
+	private HighScoreManager highScoreManager;
 
 	public CatchEngine()
 	{
 		balls = new Vector();
 		bucket = new Bucket(WIDTH/2, HEIGHT-Bucket.HEIGHT/2);
+		highScoreManager = new HighScoreManager();
 	}
 
 	public void moveLeft()
@@ -101,7 +103,8 @@ public class CatchEngine
 			}
 			moveBalls();
 			testBallCatch();
-		}
+			highScoreManager.checkScore(points);
+		} 
 	}
 
 	public void draw(Graphics g)
@@ -118,5 +121,6 @@ public class CatchEngine
 			balls.get(i).draw(g);
 
 		bucket.draw(g);
+        g.drawString("HighScore: " + + highScoreManager.getHighScore(), 10, 45);
 	}
 }

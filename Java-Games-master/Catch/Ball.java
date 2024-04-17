@@ -3,7 +3,7 @@ import java.awt.*;
 public class Ball
 {
 	public static final Color GOOD_COLOR = Color.GREEN;
-	public static final Color BAD_COLOR = Color.BLACK;
+	public static final Color BAD_COLOR = Color.RED;
 	public static final int RADIUS = 5;
 	public static final int SPEED = 2;
 
