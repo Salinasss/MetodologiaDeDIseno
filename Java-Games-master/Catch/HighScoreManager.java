@@ -1,7 +1,7 @@
 import java.io.*;
 
 public class HighScoreManager {
-    private String fileName = "highscore.txt";
+    private String archivo = "highscore.txt";
     private int highScore;
 
     public HighScoreManager() {
@@ -20,7 +20,7 @@ public class HighScoreManager {
     }
 
     private int loadScore() {
-        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(archivo))) {
             return Integer.parseInt(reader.readLine());
         } catch (IOException | NumberFormatException e) {
             // Si ocurre un error al cargar o el archivo no existe, se inicia con una puntuación de 0
@@ -29,7 +29,7 @@ public class HighScoreManager {
     }
 
     private void saveScore(int score) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(archivo))) {
             writer.write(String.valueOf(score));
         } catch (IOException e) {
             e.printStackTrace();

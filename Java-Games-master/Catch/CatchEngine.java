@@ -18,12 +18,16 @@ public class CatchEngine
 	private int addBallDelay = MAX_BALL_DELAY;
 	private int ballDelay = 0;
 	private HighScoreManager highScoreManager;
-	private boolean isBlue = false; // Variable de control para indicar si el bucket está de color azul
+	private boolean isFast = true; // Variable de control para indicar si el bucket está de color azul
 
 	public CatchEngine()
 	{
 		balls = new Vector();
-		bucket = new Bucket(WIDTH/2, HEIGHT-Bucket.HEIGHT/2,Bucket.BLACK_COLOR);
+
+		bucket = new FastBucket(WIDTH/2, HEIGHT-Bucket.HEIGHT/2,Bucket.BLACK_COLOR);
+		// bucket = new Bucket(WIDTH/2, HEIGHT-Bucket.HEIGHT/2,Bucket.BLACK_COLOR);
+		
+
 		highScoreManager = new HighScoreManager();
 	}
 
@@ -67,7 +71,7 @@ public class CatchEngine
 		{
 			if(bucket.contains(balls.get(i)))
 			{
-				if (isBlue && balls.get(i).isGood())
+				if (balls.get(i).isGood())
 				{
 					lives++;
 					points++;
@@ -117,20 +121,31 @@ public class CatchEngine
         if (points >= 2) {
             // Mantén la posición actual del balde y cambia su color
             Point currentPosition = bucket.getLocation();
-            bucket = new Bucket(currentPosition.x,currentPosition.y, Bucket.BLUE_COLOR);
-			isBlue = true;
+			if(isFast){
+            	bucket = new FastBucket(currentPosition.x,currentPosition.y, Bucket.BLUE_COLOR);
+			}
+			else{
+				bucket = new Bucket(currentPosition.x,currentPosition.y, Bucket.BLUE_COLOR);
+			}
         }
 		if(points >= 6){
-
 			Point currentPosition = bucket.getLocation();
-            bucket = new Bucket(currentPosition.x,currentPosition.y, Bucket.ORAN_COLOR);
-			isBlue = false;
+			if(isFast){
+            	bucket = new FastBucket(currentPosition.x,currentPosition.y, Bucket.ORANGE_COLOR);
+			}
+			else{
+				bucket = new Bucket(currentPosition.x,currentPosition.y, Bucket.ORANGE_COLOR);
+			}
 		}
 		if (points >=20)
 		{
 			Point currentPosition = bucket.getLocation();
-            bucket = new Bucket(currentPosition.x,currentPosition.y, Bucket.PURPLE_COLOR);
-			isBlue = false;
+			if(isFast){
+            	bucket = new Bucket(currentPosition.x,currentPosition.y, Bucket.PURPLE_COLOR);
+			}
+			else{
+				bucket = new Bucket(currentPosition.x,currentPosition.y, Bucket.PURPLE_COLOR);
+			}
 		}
 	}
 

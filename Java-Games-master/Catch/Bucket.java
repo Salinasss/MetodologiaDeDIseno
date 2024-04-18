@@ -2,17 +2,18 @@ import java.awt.*;
 
 public class Bucket
 {
+
+	protected int x, y;
+	protected int speed = 5;
+	protected Color color;
+
 	public static final int WIDTH = 20;
 	public static final int HEIGHT = 18;
-	public static final int SPEED = 5;
-
-	private int x,y;
-	private Color color;
 
 	public static final Color BLACK_COLOR = Color.BLACK;
-	public static final Color BLUE_COLOR = Color.blue;
-	public static final Color ORAN_COLOR = Color.orange;
-	public static final Color PURPLE_COLOR = Color.magenta;
+    public static final Color BLUE_COLOR = Color.BLUE;  // Asegúrate de que este color esté definido
+    public static final Color ORANGE_COLOR = Color.ORANGE;  // Verificando la definición
+    public static final Color PURPLE_COLOR = Color.MAGENTA;
 
 	public Bucket(int x, int y, Color color)
 	{
@@ -21,24 +22,24 @@ public class Bucket
 		this.color = color;
 	}
 
-	public Bucket moveTo(int x, int y)
+	protected Bucket moveTo(int x, int y)
 	{
-		return new Bucket(x,y,this.color);
+		return new Bucket(x,y, this.color);
 	}
 
-	public Bucket move(int dx, int dy)
+	protected Bucket move(int dx, int dy)
 	{
-		return new Bucket(x+dx, y+dy,this.color);
+		return new Bucket(x+dx, y+dy, this.color);
 	}
 
 	public Bucket moveLeft()
 	{
-		return move(-SPEED, 0);
+		return move(-speed, 0);
 	}
 
 	public Bucket moveRight()
 	{
-		return move(SPEED, 0);
+		return move(speed, 0);
 	}
 
 	public Point getLocation()
@@ -58,7 +59,7 @@ public class Bucket
 
 	public void draw(Graphics g)
 	{
-		g.setColor(color);
+		g.setColor(this.color);
 		g.fillRect(x-WIDTH/2, y-HEIGHT/2, WIDTH, HEIGHT);
 	}
 }
