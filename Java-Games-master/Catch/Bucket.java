@@ -21,7 +21,6 @@ public class Bucket
 		this.x = x;
 		this.y = y;
 		this.color = color;
-		System.out.println("Initialized Bucket with speed");
 	}
 
 	protected Bucket moveTo(int x, int y)
