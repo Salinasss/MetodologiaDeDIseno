@@ -5,7 +5,7 @@ public class HighScoreManager {
     private int highScore;
 
     public HighScoreManager() {
-        highScore = loadScore();
+        highScore = cargarScore();
     }
 
     public int getHighScore() {
@@ -15,11 +15,11 @@ public class HighScoreManager {
     public void checkScore(int score) {
         if (score > highScore) {
             highScore = score;
-            saveScore(highScore);
+            salvarScore(highScore);
         }
     }
 
-    private int loadScore() {
+    private int cargarScore() {
         try (BufferedReader reader = new BufferedReader(new FileReader(archivo))) {
             return Integer.parseInt(reader.readLine());
         } catch (IOException | NumberFormatException e) {
@@ -28,7 +28,7 @@ public class HighScoreManager {
         }
     }
 
-    private void saveScore(int score) {
+    private void salvarScore(int score) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(archivo))) {
             writer.write(String.valueOf(score));
         } catch (IOException e) {
