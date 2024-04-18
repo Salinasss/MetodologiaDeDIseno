@@ -7,6 +7,7 @@ public class FastBucket extends Bucket{
 	public FastBucket(int x, int y, Color color) {
 		super(x, y, color);
 		this.speed = fastSpeed;
+		System.out.println("Initialized FastBucket");
 	}
 
 }

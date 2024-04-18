@@ -3,8 +3,8 @@ import java.util.*;
 
 public class CatchEngine
 {
-	public static final int WIDTH = 250;
-	public static final int HEIGHT = 250;
+	public static final int WIDTH = 500;
+	public static final int HEIGHT = 500;
 
 	public static final int MIN_BALL_DELAY = 30;
 	public static final int MAX_BALL_DELAY = 150;
@@ -24,7 +24,7 @@ public class CatchEngine
 	{
 		balls = new Vector();
 
-		bucket = new FastBucket(WIDTH/2, HEIGHT-Bucket.HEIGHT/2,Bucket.BLACK_COLOR);
+		bucket = new FastBucket(WIDTH/2, HEIGHT-bucket.HEIGHT/2,bucket.RED_COLOR);
 		// bucket = new Bucket(WIDTH/2, HEIGHT-Bucket.HEIGHT/2,Bucket.BLACK_COLOR);
 		
 
@@ -36,8 +36,8 @@ public class CatchEngine
 		if(lives > 0)
 		{
 			bucket = bucket.moveLeft();
-			if(bucket.getLocation().getX() < -Bucket.WIDTH/2)
-				bucket = bucket.moveTo(WIDTH+Bucket.WIDTH/2, (int)bucket.getLocation().getY());
+			if(bucket.getLocation().getX() < -bucket.WIDTH/2)
+				bucket = bucket.moveTo(WIDTH+bucket.WIDTH/2, (int)bucket.getLocation().getY());
 		}
 	}
 
@@ -46,8 +46,8 @@ public class CatchEngine
 		if(lives > 0)
 		{
 			bucket = bucket.moveRight();
-			if(bucket.getLocation().getX() > WIDTH+Bucket.WIDTH/2)
-				bucket = bucket.moveTo(-Bucket.WIDTH/2, (int)bucket.getLocation().getY());
+			if(bucket.getLocation().getX() > WIDTH+bucket.WIDTH/2)
+				bucket = bucket.moveTo(-bucket.WIDTH/2, (int)bucket.getLocation().getY());
 		}
 	}
 

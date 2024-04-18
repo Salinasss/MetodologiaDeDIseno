@@ -10,6 +10,7 @@ public class Bucket
 	public static final int WIDTH = 20;
 	public static final int HEIGHT = 18;
 
+	public static final Color RED_COLOR = Color.RED;
 	public static final Color BLACK_COLOR = Color.BLACK;
     public static final Color BLUE_COLOR = Color.BLUE;  // Asegúrate de que este color esté definido
     public static final Color ORANGE_COLOR = Color.ORANGE;  // Verificando la definición
@@ -20,6 +21,7 @@ public class Bucket
 		this.x = x;
 		this.y = y;
 		this.color = color;
+		System.out.println("Initialized Bucket with speed");
 	}
 
 	protected Bucket moveTo(int x, int y)
