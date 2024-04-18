@@ -141,7 +141,7 @@ public class CatchEngine
 		{
 			Point currentPosition = bucket.getLocation();
 			if(isFast){
-            	bucket = new Bucket(currentPosition.x,currentPosition.y, Bucket.PURPLE_COLOR);
+            	bucket = new FastBucket(currentPosition.x,currentPosition.y, Bucket.PURPLE_COLOR);
 			}
 			else{
 				bucket = new Bucket(currentPosition.x,currentPosition.y, Bucket.PURPLE_COLOR);
