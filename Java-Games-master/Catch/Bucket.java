@@ -23,24 +23,27 @@ public class Bucket
 		this.color = color;
 	}
 
-	protected Bucket moveTo(int x, int y)
+	public void moveTo(int x, int y)
 	{
-		return new Bucket(x,y, this.color);
+		this.x = x;
+		this.y = y;
+
 	}
 
-	protected Bucket move(int dx, int dy)
+	public void move(int dx, int dy)
 	{
-		return new Bucket(x+dx, y+dy, this.color);
+		this.y += dy;
+		this.x += dx;
 	}
 
-	public Bucket moveLeft()
+	public void moveLeft()
 	{
-		return move(-speed, 0);
+		move(-speed, 0);
 	}
 
-	public Bucket moveRight()
+	public void moveRight()
 	{
-		return move(speed, 0);
+		move(speed, 0);
 	}
 
 	public Point getLocation()

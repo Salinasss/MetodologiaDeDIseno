@@ -24,7 +24,7 @@ public class CatchEngine
 	{
 		balls = new Vector();
 
-		bucket = new FastBucket(WIDTH/2, HEIGHT-bucket.HEIGHT/2,bucket.RED_COLOR);
+		bucket = new FastBucket(WIDTH/2, HEIGHT-Bucket.HEIGHT/2,Bucket.RED_COLOR);
 		// bucket = new Bucket(WIDTH/2, HEIGHT-Bucket.HEIGHT/2,Bucket.BLACK_COLOR);
 		
 
@@ -35,9 +35,10 @@ public class CatchEngine
 	{
 		if(lives > 0)
 		{
-			bucket = bucket.moveLeft();
-			if(bucket.getLocation().getX() < -bucket.WIDTH/2)
-				bucket = bucket.moveTo(WIDTH+bucket.WIDTH/2, (int)bucket.getLocation().getY());
+			bucket.moveLeft();
+			if(bucket.getLocation().getX() < -Bucket.WIDTH/2){
+				bucket.moveTo(WIDTH+Bucket.WIDTH/2, (int)bucket.getLocation().getY());
+			}
 		}
 	}
 
@@ -45,9 +46,10 @@ public class CatchEngine
 	{
 		if(lives > 0)
 		{
-			bucket = bucket.moveRight();
-			if(bucket.getLocation().getX() > WIDTH+bucket.WIDTH/2)
-				bucket = bucket.moveTo(-bucket.WIDTH/2, (int)bucket.getLocation().getY());
+			bucket.moveRight();
+			if(bucket.getLocation().getX() > WIDTH+Bucket.WIDTH/2){
+				bucket.moveTo(-Bucket.WIDTH/2, (int)bucket.getLocation().getY());
+			}
 		}
 	}
 
